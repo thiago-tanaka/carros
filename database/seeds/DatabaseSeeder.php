@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Account;
+use App\Models\Car;
 use App\Models\Contact;
 use App\Models\Organization;
 use App\Models\User;
@@ -21,6 +22,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         factory(User::class, 5)->create(['account_id' => $account->id]);
+
+        factory(Car::class, 100)->create();
 
         $organizations = factory(Organization::class, 100)
             ->create(['account_id' => $account->id]);

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\CarController;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ImagesController;
@@ -104,6 +105,12 @@ Route::put('organizations/{organization}/restore', [OrganizationsController::cla
 Route::get('contacts', [ContactsController::class, 'index'])
     ->name('contacts')
     ->middleware('remember', 'auth');
+    
+Route::resource('cars', CarController::class);
+
+Route::put('cars/{car}/restore', [CarController::class, 'restore'])
+    ->name('cars.restore')
+    ->middleware('auth');
 
 Route::get('contacts/create', [ContactsController::class, 'create'])
     ->name('contacts.create')
