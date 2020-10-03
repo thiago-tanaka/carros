@@ -106,7 +106,7 @@ Route::get('contacts', [ContactsController::class, 'index'])
     ->name('contacts')
     ->middleware('remember', 'auth');
     
-Route::resource('cars', CarController::class);
+Route::resource('cars', CarController::class)->middleware('auth');
 
 Route::put('cars/{car}/restore', [CarController::class, 'restore'])
     ->name('cars.restore')
