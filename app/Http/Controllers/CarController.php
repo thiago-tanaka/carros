@@ -52,7 +52,7 @@ class CarController extends Controller
             ])
         );
 
-        return Redirect::route('cars')->with('success', 'Carro criado.');
+        return Redirect::route('cars.index')->with('success', 'Carro criado.');
     }
 
     public function edit(Car $car)
